@@ -151,7 +151,7 @@
       <p>You answered:</p>
       <p class="quote">"chill"</p>
       <p>And somehow,<br>that was the beginning of everything.</p>
-      <p class="signature">Happy 14.04, Pipo.<br>Lisa</p>
+      <p class="signature">Ti voglio bene Pipo, la tua Lisa.</p>
     `;
     elements.gameView.appendChild(message);
     if (!state.completed.includes("final")) completeCurrent(false);
