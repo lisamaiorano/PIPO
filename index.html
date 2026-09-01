@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#05070b">
+    <title>PIPO // DEEP SPACE SIGNAL</title>
+    <meta name="description" content="A classified deep space signal monitor for Pipo.">
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <canvas id="starfield" aria-hidden="true"></canvas>
+    <div class="scanlines" aria-hidden="true"></div>
+
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="kicker">classified observatory node</p>
+          <h1>PIPO // DEEP SPACE SIGNAL</h1>
+          <p class="tagline">A signal from somewhere in the universe.</p>
+        </div>
+        <div class="status-cluster" aria-label="System status">
+          <span id="audioStatus" class="status-pill">AUDIO OFF</span>
+          <span id="saveStatus" class="status-pill">SAVE READY</span>
+        </div>
+      </header>
+
+      <main class="layout">
+        <aside class="mission-panel" aria-label="Mission progress">
+          <section class="hud-section">
+            <h2>Mission Progress</h2>
+            <div class="progress-track" aria-hidden="true">
+              <span id="progressFill"></span>
+            </div>
+            <ol id="progressList" class="progress-list"></ol>
+          </section>
+
+          <section class="hud-section">
+            <h2>Controls</h2>
+            <div class="button-grid">
+              <button id="hintButton" type="button">Hint</button>
+              <button id="audioButton" type="button">Audio</button>
+              <button id="resetButton" type="button" class="danger">Reset</button>
+            </div>
+          </section>
+
+          <section class="hud-section compact">
+            <h2>Signal Telemetry</h2>
+            <dl class="telemetry">
+              <div><dt>Target</dt><dd>PIPO</dd></div>
+              <div><dt>Source</dt><dd id="sourceReadout">UNKNOWN</dd></div>
+              <div><dt>Clearance</dt><dd id="clearanceReadout">0/8</dd></div>
+              <div><dt>Mode</dt><dd>CTF-ROM</dd></div>
+            </dl>
+          </section>
+        </aside>
+
+        <section class="console-panel" aria-live="polite">
+          <div class="console-header">
+            <span class="led"></span>
+            <span id="levelLabel">BOOT SEQUENCE</span>
+            <span id="attemptsLabel">ATTEMPTS: 0</span>
+          </div>
+          <div id="gameView" class="game-view"></div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="resetDialog">
+      <form method="dialog">
+        <h2>Reset mission?</h2>
+        <p>This clears the local save and returns the system to access level 0.</p>
+        <div class="dialog-actions">
+          <button value="cancel" type="submit">Cancel</button>
+          <button id="confirmReset" value="reset" type="submit" class="danger">Reset Mission</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="js/puzzles.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
