@@ -9,7 +9,7 @@ card_h = 54;
 card_t = 3;
 corner_r = 3;
 
-text_raise = 0.65;
+text_raise = 1.3;
 line_raise = 0.35;
 qr_size = 30;
 qr_x = 27.5;
@@ -41,7 +41,7 @@ module raised_line(x, y, w, h = 0.45) {
 }
 
 module qr_placeholder(x, y, size) {
-  cell = size / 9;
+  cell = size / 37;
   pattern = [
     [1,1,1,0,1,0,1,1,1],
     [1,0,1,0,0,1,1,0,1],
@@ -93,12 +93,12 @@ module back_face() {
   card_base();
   qr_placeholder(qr_x, qr_y, qr_size);
   raised_text("SCAN TO BEGIN", 4.2, card_w / 2, 45, card_t, "center");
-  raised_text("GAME_URL_PLACEHOLDER", 2.3, card_w / 2, 7, card_t, "center");
+  raised_text("https://lisamaiorano.github.io/PIPO/", 2.3, card_w / 2, 7, card_t, "center");
 }
 
 // Export one side at a time if you want separate two-color prints.
 // Default: front card.
-front_face();
+//front_face();
 
 // Uncomment to preview the back instead.
-// back_face();
+back_face();
